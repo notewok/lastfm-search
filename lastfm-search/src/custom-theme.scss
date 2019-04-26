@@ -1,0 +1,73 @@
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$custom-blue: (
+    50 : #e5ecff,
+    100 : #bfd0ff,
+    200 : #94b1ff,
+    300 : #6991ff,
+    400 : #497aff,
+    500 : #2962ff,
+    600 : #245aff,
+    700 : #1f50ff,
+    800 : #1946ff,
+    900 : #0f34ff,
+    A100 : #ffffff,
+    A200 : #f7f8ff,
+    A400 : #c4ccff,
+    A700 : #abb5ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-cyan: (
+    50 : #ecfffb,
+    100 : #d1fff4,
+    200 : #b2ffed,
+    300 : #93ffe5,
+    400 : #7bffe0,
+    500 : #64ffda,
+    600 : #5cffd6,
+    700 : #52ffd0,
+    800 : #48ffcb,
+    900 : #36ffc2,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #e0fff5,
+    A700 : #c7ffed,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-theme-primary: mat-palette($custom-blue);
+$custom-theme-accent: mat-palette($custom-cyan, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
