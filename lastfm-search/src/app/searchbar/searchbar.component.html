@@ -1,3 +1,17 @@
-<p>
-  searchbar works!
-</p>
+<section>
+  <section>
+      <input type="text"
+          [(ngModel)]="userInput.name"
+          placeholder="name"
+      />
+      {{ userInput.name }}
+  </section>
+  <section>
+    <ul>
+      <li>
+      <h3>{{ lastfmData.name }}</h3>
+      <span *ngFor="let tag of lastfmData.tags.tag"> {{ tag.name }}</span>
+      </li>
+    </ul>
+  </section>
+</section>

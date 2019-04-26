@@ -5,18 +5,13 @@ interface lfData { name: string, tags }
 
 @Component({
   selector: 'app-searchbar',
-  template: `<ul>
-                <li>
-                <h3>{{ lastfmData.name }}</h3>
-                <span *ngFor="let tag of lastfmData.tags.tag"> {{ tag.name }}</span>
-                </li>
-              </ul>
-  `,
+  templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss']
 })
 export class SearchbarComponent implements OnInit {
   lastfmData: lfData[];
   lastfmApiService;
+  userInput = {name: ''};
 
   constructor( lastfmService: LastfmApiService ) {
     this.lastfmApiService = lastfmService;
@@ -25,7 +20,7 @@ export class SearchbarComponent implements OnInit {
   ngOnInit() {
     this.lastfmApiService.fetch((result) => {
         this.lastfmData = result.artist;
-        console.log(result.tags.tag);
+        console.log(result);
     });
   }
 
