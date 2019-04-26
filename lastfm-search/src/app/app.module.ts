@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { LastfmApiService } from './lastfm-api.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LastfmApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
