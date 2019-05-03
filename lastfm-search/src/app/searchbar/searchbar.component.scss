@@ -1,6 +1,28 @@
-span:not(:last-child) {
-    margin-right: 5px;
+a {
+    text-decoration: none;
+    color: #2a2a2a;
 }
+
 li {
     list-style-type: none;
+}
+ 
+div {
+    padding-left: 20px;
+    border-left: solid 5px black;
+    h3 {
+        font-size: 1.5em;
+        font-variant-caps: all-small-caps;
+    }
+    ul {
+        padding: 0;
+        display: inline;
+        margin-left: 5px;
+        li {
+            display: inline-block;
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+    }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LastfmApiService } from '../lastfm-api.service';
-
-interface lfData { name: string, tags }
+import { LastfmData } from '../lastfmData';
 
 @Component({
   selector: 'app-searchbar',
@@ -9,19 +8,28 @@ interface lfData { name: string, tags }
   styleUrls: ['./searchbar.component.scss']
 })
 export class SearchbarComponent implements OnInit {
-  lastfmData: lfData[];
+  lastfmData: LastfmData;
   lastfmApiService;
-  userInput = {name: ''};
+  value: string;
 
   constructor( lastfmService: LastfmApiService ) {
     this.lastfmApiService = lastfmService;
   }
 
-  ngOnInit() {
-    this.lastfmApiService.fetch((result) => {
-        this.lastfmData = result.artist;
-        console.log(result);
+  search(searchValue: string) {
+    let service = this.lastfmApiService;
+    this.value = searchValue;
+
+    service.searchValue(this.value);
+    service.fetch((result) => {
+          this.lastfmData = result.artist;
     });
   }
 
+
+  ngOnInit() {
+    this.lastfmApiService.fetch((result) => {
+        this.lastfmData = result.artist;
+    });
+  }
 }

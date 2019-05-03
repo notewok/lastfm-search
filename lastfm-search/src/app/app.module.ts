@@ -9,6 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LastfmApiService } from './lastfm-api.service';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { LastfmApiService } from './lastfm-api.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [LastfmApiService],
   bootstrap: [AppComponent]
