@@ -32,9 +32,7 @@ export class LastfmApiService {
     this.http.get<LastfmData>(httpAddress).subscribe(jsonObject => {
       callBackFunction(jsonObject);
       console.log(jsonObject);
-      if (jsonObject.artist) {
-        this.storeTags(jsonObject);
-      }
+      this.storeTags(jsonObject);
     });
   }
 
