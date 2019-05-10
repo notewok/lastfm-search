@@ -1,0 +1,25 @@
+
+@import '../custom-theme.scss';
+@include angular-material-theme($custom-theme);
+@include mat-core();
+
+$app-primary: mat-palette($custom-blue);
+$app-accent: mat-palette($custom-cyan);
+$app-warn: mat-palette($mat-red);
+
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$text: #242424;
+
+@mixin button-design($width-percentage, $color) {
+    padding: 1px 5px;
+    margin: 5px;
+    width: calc(#{$width-percentage} - 10px);
+    border: solid 3px $color;
+    border-radius: 30px;
+    font-weight: 400;
+    &:hover {
+        transform: translateY(1px);
+    }
+}

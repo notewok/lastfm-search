@@ -1,13 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './custom-theme.scss';
-@include angular-material-theme($custom-theme);
+@import './styles/responsive';
+@import './styles/variables';
+
 
 body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
     font-weight: 100;
+    background: $primary;
     h1,
     h2,
     h3,
@@ -16,9 +18,10 @@ body {
         font-weight: 500;
     }
     .container {
-        margin: 0 auto;
+        margin: 10px auto;
+        padding: 0 0 10px 0;
         max-width: 1200px;
-        height: 100vh;
-        padding: 5px 10px;
+        min-height: 100vh;
+        background: white;
     }
 }

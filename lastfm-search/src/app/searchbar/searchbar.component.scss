@@ -1,3 +1,32 @@
+@import "../../styles/variables";
+
+@keyframes hover-in {
+    from {
+        width: 320px;
+    }
+    to {
+        width: 340px;
+        h4 {
+            font-size: 1.5em;
+        }
+    }
+}
+@keyframes hover-out {
+    from {
+        width: 340px;
+        h4 {
+            font-size: 1.5em;
+        }
+    }
+    to {
+        width: 320px;
+    }
+}
+
+section {
+    margin-top: 10px;
+}
+
 a {
     text-decoration: none;
     color: #2a2a2a;
@@ -6,23 +35,70 @@ a {
 li {
     list-style-type: none;
 }
+
+#searchbar {
+    max-width: 500px;
+    margin: 0 auto;
+    mat-form-field {
+        width: 70%;
+    }
+    > button {
+        @include button-design(30%, $primary);
+    }
+}
  
-div {
-    padding-left: 20px;
-    border-left: solid 5px black;
+#search-result {
+    padding: 0px 0 20px 10px;
     h3 {
+        margin: 0 0 20px 0;
         font-size: 1.5em;
         font-variant-caps: all-small-caps;
     }
     ul {
         padding: 0;
         display: inline;
-        margin-left: 5px;
         li {
             display: inline-block;
             &:not(:last-child) {
                 margin-right: 5px;
             }
+        }
+    }
+}
+
+section > ul:last-child {
+    padding: 0;
+    margin-top: 30px;
+    li {
+        animation-name: hover-out;
+        animation-duration: 800ms;
+        animation-iteration-count: 1;
+        width: 320px;
+        padding: 15px 40px;
+        margin: 10px 0;
+        background: $primary;
+        border-radius: 0;
+        box-shadow: inset -12px 1px 15px -6px rgba(0, 0, 0, 0.5);
+        h4 {
+            margin: 0 0 10px;
+            font-weight: bolder;
+            color: white;
+            font-size: 1.1em;
+        }
+        .link-container {
+            margin-left: 160px;
+            a {
+                border-bottom: solid 1px white;
+                padding: 1px 0;
+                font-size: 12px;
+                color: white;
+            }
+        }
+        &:hover {
+            animation-name: hover-in;
+            animation-duration: 800ms;
+            animation-iteration-count: 1;
+            width: 340px;
         }
     }
 }

@@ -21,11 +21,19 @@ export class SearchbarComponent implements OnInit {
     this.value = searchValue;
 
     service.searchValue(this.value);
-    service.fetch((result) => {
+    service.fetch((result)  => {
           this.lastfmData = result.artist;
     });
+    this.searchByTags();
   }
-
+  searchByTags() {
+    let service = this.lastfmApiService;
+    console.log(this.lastfmData);
+    service.fetchTags((result) => {
+      this.lastfmData = result
+      console.log(result)
+    });
+  }
 
   ngOnInit() {
     this.lastfmApiService.fetch((result) => {

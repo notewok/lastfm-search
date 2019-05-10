@@ -1,34 +1,42 @@
 <section >
-  <mat-form-field>
-    <input matInput type="text" placeholder="Artist search" [(ngModel)]="value">
-    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+  <div id="searchbar">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Artist search" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
   
-  <button mat-button class="btn btn-primary" (click)="search(value)">Search</button>
-  
-  <div *ngIf="lastfmData">
-    <h3>
-      <a href='{{lastfmData.url}}'>{{ lastfmData.name }}</a>
-    </h3>
+    <button mat-button class="btn btn-primary" (click)="search(value)">Search</button>
+  </div>
+</section>
+
+<section>
+  <ng-container *ngIf="lastfmData !== undefined">
+    <div id="search-result" *ngIf="lastfmData.name">
+      <h3>
+        <a href='{{lastfmData.url}}'>{{ lastfmData.name }}</a>
+      </h3>
+      <ul>
+        <ng-container *ngFor="let tag of lastfmData.tags.tag">
+            <li *ngIf="!tag.name.includes('seen live')">
+              <a href="{{ tag.url }}">
+                {{ tag.name }}
+              </a>
+            </li>
+        </ng-container>
+      </ul>
+    </div>
+
     <ul>
-      <ng-container *ngFor="let tag of lastfmData.tags.tag">
-          <li *ngIf="!tag.name.includes('seen live')">
-            <a href="{{ tag.url }}">
-              {{ tag.name }}
-            </a>
+      <ng-container *ngFor="let similar of lastfmData.similar.artist">
+          <li *ngIf="!similar.name.includes(lastfmData.name)">
+              <h4> {{ similar.name }} </h4>
+              <div class="link-container">
+                  <a href="{{similar.url}}"> Read more > </a>
+              </div>
           </li>
       </ng-container>
     </ul>
-  </div>
-
-  <ul>
-    <ng-container *ngFor="let similar of lastfmData.similar.artist">
-        <li *ngIf="!similar.name.includes(lastfmData.name)">
-            <a href="{{similar.url}}"> {{similar.name}} </a>
-        </li>
-    </ng-container>
-
-  </ul>
+  </ng-container>
 </section>
