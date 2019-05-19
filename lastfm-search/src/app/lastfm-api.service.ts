@@ -31,7 +31,6 @@ export class LastfmApiService {
     `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${this.input}&api_key=0ce3f03b4ae2c82ed37d595af73336b0&format=json`;
     this.http.get<LastfmData>(httpAddress).subscribe(jsonObject => {
       callBackFunction(jsonObject);
-      console.log(jsonObject);
       this.storeTags(jsonObject);
     });
   }
@@ -40,7 +39,6 @@ export class LastfmApiService {
     let httpAddress =
     `http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=punk&api_key=0ce3f03b4ae2c82ed37d595af73336b0&format=json`;
     this.http.get<LastfmData>(httpAddress).subscribe(jsonObject => {
-      console.log(jsonObject);
       callBackFunction(jsonObject);
     });
   }
